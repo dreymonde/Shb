@@ -18,20 +18,18 @@ Shb performs its calculations locally using an algorithm from the [United States
 Solar simply needs a date and a location specified as a latitude and longitude:
 
 ```swift
-let solar = USNOSolar(for: someDate, latitude: 51.528308, longitude: -0.1340267)
-let sunrise = solar.sunrise
-let sunset = solar.sunset
-```
-
-We can also omit providing a date if we just need the sunrise and sunset for today:
-
-```swift
-let solar = Solar(latitude: 51.528308, longitude: -0.1340267)
+let solar = USNOSolar(date: someDate, latitude: 51.528308, longitude: -0.1340267)
 let sunrise = solar.sunrise
 let sunset = solar.sunset
 ```
 
 Note that all dates are UTC. Don't forget to format your date into the appropriate timezone if required.
+
+### Shabbat times
+
+```swift
+
+```
 
 ### Types of sunrise and sunset
 

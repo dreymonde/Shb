@@ -51,18 +51,14 @@ public struct Solar<Calculation : SolarCalculation> {
     
     // MARK: Init
     
-    public init?(date: Date, latitude: Double, longitude: Double) {
+    
+    public init(date: Date, latitude: Double, longitude: Double) {
+        precondition(latitude >= -90.0 && latitude <= 90.0, "Invalid latitude")
+        precondition(longitude >= -180.0 && longitude <= 180.0, "Invalid longitude")
+        
         self.date = date
         self.latitude = latitude
         self.longitude = longitude
-        
-        guard latitude >= -90.0 && latitude <= 90.0 else {
-            return nil
-        }
-        
-        guard longitude >= -180.0 && longitude <= 180.0 else {
-            return nil
-        }
     }
     
     // MARK: - Public functions
