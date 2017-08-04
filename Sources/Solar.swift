@@ -51,7 +51,7 @@ public struct Solar<Calculation : SolarCalculation> {
     
     // MARK: Init
     
-    public init?(for date: Date = Date(), latitude: Double, longitude: Double) {
+    public init?(date: Date, latitude: Double, longitude: Double) {
         self.date = date
         self.latitude = latitude
         self.longitude = longitude

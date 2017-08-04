@@ -34,7 +34,7 @@ final class SolarTests: XCTestCase {
     
     func testSunrise() {
         for city in cities {
-            let solar = USNOSolar(for: testDate, latitude: city.latitude, longitude: city.longitude)
+            let solar = USNOSolar(date: testDate, latitude: city.latitude, longitude: city.longitude)
             
             guard
                 let sunrise = solar?.sunrise
@@ -48,14 +48,14 @@ final class SolarTests: XCTestCase {
     }
     
     func testSunrise_isNil_whenNoSunriseOccurs() {
-        let solar = USNOSolar(for: testDate, latitude: 78.2186, longitude: 15.64007) // Location: Longyearbyen
+        let solar = USNOSolar(date: testDate, latitude: 78.2186, longitude: 15.64007) // Location: Longyearbyen
         XCTAssertNotNil(solar)
         XCTAssertNil(solar?.sunrise)
     }
     
     func testSunset() {
         for city in cities {
-            let solar = USNOSolar(for: testDate, latitude: city.latitude, longitude: city.longitude)
+            let solar = USNOSolar(date: testDate, latitude: city.latitude, longitude: city.longitude)
             
             guard
                 let sunset = solar?.sunset
@@ -69,7 +69,7 @@ final class SolarTests: XCTestCase {
     }
     
     func testSunset_isNil_whenNoSunsetOccurs() {
-        let solar = USNOSolar(for: testDate, latitude: 78.2186, longitude: 15.64007) // Location: Longyearbyen
+        let solar = USNOSolar(date: testDate, latitude: 78.2186, longitude: 15.64007) // Location: Longyearbyen
         XCTAssertNotNil(solar)
         XCTAssertNil(solar?.sunset)
     }

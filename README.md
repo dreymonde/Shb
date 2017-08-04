@@ -2,21 +2,23 @@
 <img src="./solar-logo.png" />
 </div>
 
-# Solar
+# Shb
 
 [![Version](https://img.shields.io/cocoapods/v/Solar.svg?style=flat)](http://cocoapods.org/pods/Solar) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/ceeK/Solar.svg?branch=master)](https://travis-ci.org/ceeK/Solar)
  [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE)
 
-A Swift helper for generating Sunrise and Sunset times. 
+A Swift helper for generating Sunrise, Sunset and Shabbat times. Fork of [ceeK/Solar](https://github.com/ceeK/Solar). 
 
-Solar performs its calculations locally using an algorithm from the [United States Naval Observatory](http://williams.best.vwh.net/sunrise_sunset_algorithm.htm), and thus does not require the use of a network.
+Shb performs its calculations locally using an algorithm from the [United States Naval Observatory](http://williams.best.vwh.net/sunrise_sunset_algorithm.htm), and thus does not require the use of a network.
 
 ## Usage
+
+### Sunrise/sunset
 
 Solar simply needs a date and a location specified as a latitude and longitude:
 
 ```swift
-let solar = Solar(for: someDate, latitude: 51.528308, longitude: -0.1340267)
+let solar = USNOSolar(for: someDate, latitude: 51.528308, longitude: -0.1340267)
 let sunrise = solar.sunrise
 let sunset = solar.sunset
 ```
