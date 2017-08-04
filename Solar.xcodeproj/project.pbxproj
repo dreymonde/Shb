@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7CA391A51F34607F00287C18 /* USNO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA391A41F34607F00287C18 /* USNO.swift */; };
 		97837EAE1E4BB1DE000FEF64 /* SolarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97837EAD1E4BB1DE000FEF64 /* SolarTests.swift */; };
 		97837EB01E4BB1DE000FEF64 /* Solar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7FC5B5A1D469B2700C4D3EB /* Solar.framework */; };
 		97837EB71E4D0045000FEF64 /* CorrectResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 97837EB61E4D0045000FEF64 /* CorrectResults.json */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7CA391A41F34607F00287C18 /* USNO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USNO.swift; sourceTree = "<group>"; };
 		97837EAB1E4BB1DE000FEF64 /* SolarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97837EAD1E4BB1DE000FEF64 /* SolarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarTests.swift; sourceTree = "<group>"; };
 		97837EAF1E4BB1DE000FEF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				F7FC5B651D469B4E00C4D3EB /* Solar.swift */,
+				7CA391A41F34607F00287C18 /* USNO.swift */,
 				F7FC5B5F1D469B2700C4D3EB /* Info.plist */,
 			);
 			path = Solar;
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7FC5B661D469B4E00C4D3EB /* Solar.swift in Sources */,
+				7CA391A51F34607F00287C18 /* USNO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

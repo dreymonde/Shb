@@ -26,7 +26,13 @@
 
 import Foundation
 
-public struct Solar {
+public protocol ZenithProtocol : Hashable {
+    
+    var zenith: Double { get }
+    
+}
+
+public struct Solar<Zenith : ZenithProtocol> {
     
     /// The latitude that is used for the calculation
     public let latitude: Double
@@ -35,16 +41,7 @@ public struct Solar {
     public let longitude: Double
     
     /// The date to generate sunrise / sunset times for
-    public fileprivate(set) var date: Date
-    
-    public fileprivate(set) var sunrise: Date?
-    public fileprivate(set) var sunset: Date?
-    public fileprivate(set) var civilSunrise: Date?
-    public fileprivate(set) var civilSunset: Date?
-    public fileprivate(set) var nauticalSunrise: Date?
-    public fileprivate(set) var nauticalSunset: Date?
-    public fileprivate(set) var astronomicalSunrise: Date?
-    public fileprivate(set) var astronomicalSunset: Date?
+    public let date: Date
     
     // MARK: Init
     
@@ -60,42 +57,25 @@ public struct Solar {
         guard longitude >= -180.0 && longitude <= 180.0 else {
             return nil
         }
-        
-        // Fill this Solar object with relevant data
-        calculate()
     }
     
     // MARK: - Public functions
     
     /// Sets all of the Solar object's sunrise / sunset variables, if possible.
     /// - Note: Can return `nil` objects if sunrise / sunset does not occur on that day.
-    public mutating func calculate() {
-        sunrise = calculate(.sunrise, for: date, and: .official)
-        sunset = calculate(.sunset, for: date, and: .official)
-        civilSunrise = calculate(.sunrise, for: date, and: .civil)
-        civilSunset = calculate(.sunset, for: date, and: .civil)
-        nauticalSunrise = calculate(.sunrise, for: date, and: .nautical)
-        nauticalSunset = calculate(.sunset, for: date, and: .nautical)
-        astronomicalSunrise = calculate(.sunrise, for: date, and: .astronimical)
-        astronomicalSunset = calculate(.sunset, for: date, and: .astronimical)
-    }
-    
+
     // MARK: - Private functions
     
-    fileprivate enum SunriseSunset {
+    public enum SunriseSunset {
         case sunrise
         case sunset
     }
     
-    /// Used for generating several of the possible sunrise / sunset times
-    fileprivate enum Zenith: Double {
-        case official = 90.83
-        case civil = 96
-        case nautical = 102
-        case astronimical = 108
+    public func calculate(zenith: Zenith, at sunriseSunset: SunriseSunset) -> Date? {
+        return calculate(sunriseSunset, for: date, zenith: zenith)
     }
     
-    fileprivate func calculate(_ sunriseSunset: SunriseSunset, for date: Date, and zenith: Zenith) -> Date? {
+    fileprivate func calculate(_ sunriseSunset: SunriseSunset, for date: Date, zenith: Zenith) -> Date? {
         guard let utcTimezone = TimeZone(identifier: "UTC") else { return nil }
         
         // Get the day of the year
@@ -140,7 +120,7 @@ public struct Solar {
         let cosDec = cos(asin(sinDec))
         
         // Calculate the Sun's local hour angle
-        let cosH = (cos(zenith.rawValue.degreesToRadians) - (sinDec * sin(latitude.degreesToRadians))) / (cosDec * cos(latitude.degreesToRadians))
+        let cosH = (cos(zenith.zenith.degreesToRadians) - (sinDec * sin(latitude.degreesToRadians))) / (cosDec * cos(latitude.degreesToRadians))
         
         // No sunrise
         guard cosH < 1 else {
@@ -204,36 +184,6 @@ public struct Solar {
         }
         
         return value
-    }
-    
-}
-
-extension Solar {
-    
-    /// Whether the location specified by the `latitude` and `longitude` is in daytime on `date`
-    /// - Complexity: O(1)
-    public var isDaytime: Bool {
-        guard
-            let sunrise = sunrise,
-            let sunset = sunset
-        else {
-            return false
-        }
-        
-        let beginningOfDay = sunrise.timeIntervalSince1970
-        let endOfDay = sunset.timeIntervalSince1970
-        let currentTime = self.date.timeIntervalSince1970
-        
-        let isSunriseOrLater = currentTime >= beginningOfDay
-        let isBeforeSunset = currentTime < endOfDay
-    
-        return isSunriseOrLater && isBeforeSunset
-    }
-    
-    /// Whether the location specified by the `latitude` and `longitude` is in nighttime on `date`
-    /// - Complexity: O(1)
-    public var isNighttime: Bool {
-        return !isDaytime
     }
     
 }
