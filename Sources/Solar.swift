@@ -26,13 +26,19 @@
 
 import Foundation
 
-public protocol ZenithProtocol : Hashable {
+public enum SunriseSunset {
+    case sunrise
+    case sunset
+}
+
+public protocol SolarCalculation {
     
     var zenith: Double { get }
+    var sunriseSunset: SunriseSunset { get }
     
 }
 
-public struct Solar<Zenith : ZenithProtocol> {
+public struct Solar<Calculation : SolarCalculation> {
     
     /// The latitude that is used for the calculation
     public let latitude: Double
@@ -66,17 +72,15 @@ public struct Solar<Zenith : ZenithProtocol> {
 
     // MARK: - Private functions
     
-    public enum SunriseSunset {
-        case sunrise
-        case sunset
+    public func calculate(_ calculation: Calculation) -> Date? {
+        return calculate(for: date, calculation: calculation)
     }
     
-    public func calculate(zenith: Zenith, at sunriseSunset: SunriseSunset) -> Date? {
-        return calculate(sunriseSunset, for: date, zenith: zenith)
-    }
-    
-    fileprivate func calculate(_ sunriseSunset: SunriseSunset, for date: Date, zenith: Zenith) -> Date? {
+    fileprivate func calculate(for date: Date, calculation: Calculation) -> Date? {
         guard let utcTimezone = TimeZone(identifier: "UTC") else { return nil }
+        
+        let sunriseSunset = calculation.sunriseSunset
+        let zenith = calculation.zenith
         
         // Get the day of the year
         var calendar = Calendar(identifier: .gregorian)
@@ -120,7 +124,7 @@ public struct Solar<Zenith : ZenithProtocol> {
         let cosDec = cos(asin(sinDec))
         
         // Calculate the Sun's local hour angle
-        let cosH = (cos(zenith.zenith.degreesToRadians) - (sinDec * sin(latitude.degreesToRadians))) / (cosDec * cos(latitude.degreesToRadians))
+        let cosH = (cos(zenith.degreesToRadians) - (sinDec * sin(latitude.degreesToRadians))) / (cosDec * cos(latitude.degreesToRadians))
         
         // No sunrise
         guard cosH < 1 else {

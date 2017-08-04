@@ -10,7 +10,7 @@ import XCTest
 
 @testable import Shb
 
-typealias USNOSolar = Solar<USNOZenith>
+typealias USNOSolar = Solar<USNOCalculation>
 
 final class SolarTests: XCTestCase {
     
@@ -22,8 +22,7 @@ final class SolarTests: XCTestCase {
     
     private lazy var cities: [City] = {
         guard
-            let resultsURLString = Bundle(for: type(of: self)).path(forResource: "CorrectResults", ofType: "json"),
-            let resultsURL = URL(string: "file:///" + resultsURLString),
+            let resultsURL = Bundle(for: type(of: self)).url(forResource: "CorrectResults", withExtension: "json"),
             let data = try? Data(contentsOf: resultsURL),
             let dictionary = try? JSONSerialization.jsonObject(with: data, options: []),
             let cityDictionaries = dictionary as? [[String : Any]]

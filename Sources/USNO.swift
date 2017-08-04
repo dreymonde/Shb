@@ -8,51 +8,66 @@
 
 import Foundation
 
-public enum USNOZenith : Double, ZenithProtocol {
+public enum USNOZenith : Double {
     
     case official = 90.83
     case civil = 96
     case nautical = 102
     case astronomical = 108
     
+}
+
+public struct USNOCalculation : SolarCalculation {
+    
+    public let sunriseSunset: SunriseSunset
+    public let zenithValue: USNOZenith
+    
+    public static func sunrise(zenith: USNOZenith) -> USNOCalculation {
+        return USNOCalculation(sunriseSunset: .sunrise, zenithValue: zenith)
+    }
+    
+    public static func sunset(zenith: USNOZenith) -> USNOCalculation {
+        return USNOCalculation(sunriseSunset: .sunset, zenithValue: zenith)
+    }
+    
     public var zenith: Double {
-        return rawValue
+        return zenithValue.rawValue
     }
     
 }
 
-public extension Solar where Zenith == USNOZenith {
+public extension Solar where Calculation == USNOCalculation {
     
     public var sunrise: Date? {
-        return calculate(zenith: .official, at: .sunrise)
+        return calculate(.sunrise(zenith: .official))
     }
     
     public var sunset: Date? {
-        return calculate(zenith: .official, at: .sunset)
+        return calculate(.sunset(zenith: .official))
     }
     
     public var civilSunrise: Date? {
-        return calculate(zenith: .civil, at: .sunrise)
+        return calculate(.sunrise(zenith: .civil))
     }
     
     public var civilSunset: Date? {
-        return calculate(zenith: .civil, at: .sunset)
+        return calculate(.sunset(zenith: .civil))
     }
     
     public var nauticalSunrise: Date? {
-        return calculate(zenith: .nautical, at: .sunrise)
+        return calculate(.sunrise(zenith: .nautical))
     }
     
     public var nauticalSunset: Date? {
-        return calculate(zenith: .nautical, at: .sunset)
+        return calculate(.sunset(zenith: .nautical))
     }
     
     public var astronomicalSunrise: Date? {
-        return calculate(zenith: .astronomical, at: .sunrise)
+        return calculate(.sunrise(zenith: .astronomical))
     }
     
     public var astronomicalSunset: Date? {
-        return calculate(zenith: .astronomical, at: .sunset)
+        return calculate(.sunset(zenith: .astronomical))
     }
     
 }
