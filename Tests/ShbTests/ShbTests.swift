@@ -26,7 +26,10 @@ class ShbTests: XCTestCase {
     
     func testUsage() {
         let someDate = Date()
-        _ = Shb(date: someDate, latitude: 31.771959, longitude: 35.217018)
+        let shabbat = Shb(date: someDate, latitude: 31.771959, longitude: 35.217018)
+        let candles = shabbat.lightCandles
+        let start = shabbat.shabbatStarts
+        let ends = shabbat.shabbatEnds
     }
     
 }

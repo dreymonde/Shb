@@ -9,7 +9,9 @@
 
 A Swift helper for generating Sunrise, Sunset and Shabbat times. Fork of [ceeK/Solar](https://github.com/ceeK/Solar). 
 
-Shb performs its calculations locally using an algorithm from the [United States Naval Observatory](http://williams.best.vwh.net/sunrise_sunset_algorithm.htm), and thus does not require the use of a network.
+In **Shb** (as opposed to **Solar**), a `Solar` is a generic type, thus giving the ability to provide custom calculation (zenith) information.
+
+**Shb** performs its calculations locally using an algorithm from the [United States Naval Observatory](http://williams.best.vwh.net/sunrise_sunset_algorithm.htm), and thus does not require the use of a network.
 
 ## Usage
 
@@ -28,7 +30,10 @@ Note that all dates are UTC. Don't forget to format your date into the appropria
 ### Shabbat times
 
 ```swift
-
+let shabbat = Shb(date: someDate, latitude: 31.771959, longitude: 35.217018)
+let candles = shabbat.lightCandles
+let start = shabbat.shabbatStarts
+let ends = shabbat.shabbatEnds
 ```
 
 ### Types of sunrise and sunset
@@ -45,38 +50,16 @@ There are several types of sunrise and sunset that Solar generates. They differ 
 
 For more information, see https://www.timeanddate.com/astronomy/different-types-twilight.html
 
-## Convenience methods
-
-Solar also comes packaged with some convenience methods:
-
-```swift
-// Whether the location specified by the `latitude` and `longitude` is in daytime on `date`
-let isDaytime = solar.isDaytime
-
-// Whether the location specified by the `latitude` and `longitude` is in nighttime on `date`
-let isNighttime = solar.isNighttime
-```
-
 ## Installation
 
-Solar is available through CocoaPods and Carthage. 
-
-### Cocoapods
-
-To install, simply add the following line to your podfile:
-
-```ruby
-pod "Solar"
-```
-
-Then run `pod install`
+**Shb** is available through Carthage. 
 
 ### Carthage
 
-Add the `ceek/Solar` project to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile)
+Add the `dreymonde/Shb` project to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile)
 
 ```ruby
-github "ceeK/Solar"
+github "dreymonde/Shb"
 ```
 
 Then run `carthage update`
