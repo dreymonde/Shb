@@ -35,6 +35,29 @@ let start = shabbat.shabbatStarts
 let ends = shabbat.shabbatEnds
 ```
 
+### Providing your own calculation info
+
+```swift
+public enum CustomCalc : SolarCalculation {
+    
+    case civilSunset
+    
+    public var zenith: Double {
+        return 96
+    }
+    
+    public var sunriseSunset: SunriseSunset {
+        return .sunset
+    }
+    
+}
+```
+
+```swift
+let customSolar = Solar<CustomCalc>(date: someDate, latitude: 31.771959, longitude: 35.217018)
+let civilSunset = customSolar.calculate(.civilSunset)
+```
+
 ### Types of sunrise and sunset
 
 There are several types of sunrise and sunset that Solar generates. They differ by how many degrees the sun lies below the horizon:

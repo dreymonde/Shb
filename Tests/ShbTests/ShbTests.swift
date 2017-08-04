@@ -30,6 +30,28 @@ class ShbTests: XCTestCase {
         let candles = shabbat.lightCandles
         let start = shabbat.shabbatStarts
         let ends = shabbat.shabbatEnds
+        print(candles as Any, start as Any, ends as Any)
     }
     
+}
+
+public enum CustomCalc : SolarCalculation {
+    
+    case civilSunset
+    
+    public var zenith: Double {
+        return 96
+    }
+    
+    public var sunriseSunset: SunriseSunset {
+        return .sunset
+    }
+    
+}
+
+func testCC() {
+    let someDate = Date()
+    let customSolar = Solar<CustomCalc>(date: someDate, latitude: 31.771959, longitude: 35.217018)
+    let civilSunset = customSolar.calculate(.civilSunset)
+    print(civilSunset as Any)
 }
