@@ -11,13 +11,17 @@ import XCTest
 import Shb
 
 class ShbTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        //// XCTAssertEqual(Shb().text, "Hello, World!")
+    
+    func testShabbatKharkiv() {
+        let aug4_2017 = Date(timeIntervalSince1970: 1501835467)
+        let shb_fri = Shb(for: aug4_2017, latitude: 49.988358, longitude: 36.232845)!
+        let presumedCandles = Date(timeIntervalSince1970: 1501865580)
+        XCTAssertEqualWithAccuracy(shb_fri.lightCandles!.timeIntervalSince1970, presumedCandles.timeIntervalSince1970, accuracy: SolarTests.testAccuracy)
+        let presumedStart = Date(timeIntervalSince1970: 1501866720)
+        XCTAssertEqualWithAccuracy(shb_fri.shabbatStarts!.timeIntervalSince1970, presumedStart.timeIntervalSince1970, accuracy: SolarTests.testAccuracy)
+        let presumedEnd = Date(timeIntervalSince1970: 1501956540)
+        let shb_sat = Shb(for: aug4_2017.addingTimeInterval(86400), latitude: 49.988358, longitude: 36.232845)!
+        XCTAssertEqualWithAccuracy(shb_sat.shabbatEnds!.timeIntervalSince1970, presumedEnd.timeIntervalSince1970, accuracy: SolarTests.testAccuracy)
     }
     
-    static var allTests = [
-        ("testExample", testExample),
-    ]
 }

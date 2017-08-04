@@ -25,6 +25,10 @@
 		7CAF9B081F3463840075317B /* CorrectResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CAF9B071F3463840075317B /* CorrectResults.json */; };
 		7CAF9B091F3463840075317B /* CorrectResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CAF9B071F3463840075317B /* CorrectResults.json */; };
 		7CAF9B0A1F3463840075317B /* CorrectResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CAF9B071F3463840075317B /* CorrectResults.json */; };
+		7CAF9B0C1F34666B0075317B /* Shb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF9B0B1F34666B0075317B /* Shb.swift */; };
+		7CAF9B0D1F34666B0075317B /* Shb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF9B0B1F34666B0075317B /* Shb.swift */; };
+		7CAF9B0E1F34666B0075317B /* Shb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF9B0B1F34666B0075317B /* Shb.swift */; };
+		7CAF9B0F1F34666B0075317B /* Shb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF9B0B1F34666B0075317B /* Shb.swift */; };
 		8933C78E1EB5B82C000D00A4 /* ShbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* ShbTests.swift */; };
 		8933C78F1EB5B82C000D00A4 /* ShbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* ShbTests.swift */; };
 		8933C7901EB5B82D000D00A4 /* ShbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* ShbTests.swift */; };
@@ -67,6 +71,7 @@
 		7CAF9AF71F3462520075317B /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		7CAF9AF91F3462520075317B /* SolarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolarTests.swift; sourceTree = "<group>"; };
 		7CAF9B071F3463840075317B /* CorrectResults.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CorrectResults.json; sourceTree = "<group>"; };
+		7CAF9B0B1F34666B0075317B /* Shb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shb.swift; sourceTree = "<group>"; };
 		8933C7891EB5B82A000D00A4 /* ShbTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShbTests.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* Shb.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Shb.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* ShbTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShbTests.plist; sourceTree = "<group>"; };
@@ -168,6 +173,7 @@
 			children = (
 				7CAF9AED1F34623E0075317B /* Solar.swift */,
 				7CAF9AEE1F34623E0075317B /* USNO.swift */,
+				7CAF9B0B1F34666B0075317B /* Shb.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -175,10 +181,10 @@
 		8933C7831EB5B7EB000D00A4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				7CAF9B071F3463840075317B /* CorrectResults.json */,
 				8933C7891EB5B82A000D00A4 /* ShbTests.swift */,
-				7CAF9AF71F3462520075317B /* City.swift */,
 				7CAF9AF91F3462520075317B /* SolarTests.swift */,
+				7CAF9AF71F3462520075317B /* City.swift */,
+				7CAF9B071F3463840075317B /* CorrectResults.json */,
 			);
 			name = Tests;
 			path = Tests/ShbTests;
@@ -485,6 +491,7 @@
 			files = (
 				7CAF9AF31F34623E0075317B /* USNO.swift in Sources */,
 				7CAF9AEF1F34623E0075317B /* Solar.swift in Sources */,
+				7CAF9B0C1F34666B0075317B /* Shb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +511,7 @@
 			files = (
 				7CAF9AF51F34623E0075317B /* USNO.swift in Sources */,
 				7CAF9AF11F34623E0075317B /* Solar.swift in Sources */,
+				7CAF9B0E1F34666B0075317B /* Shb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +521,7 @@
 			files = (
 				7CAF9AF61F34623E0075317B /* USNO.swift in Sources */,
 				7CAF9AF21F34623E0075317B /* Solar.swift in Sources */,
+				7CAF9B0F1F34666B0075317B /* Shb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +531,7 @@
 			files = (
 				7CAF9AF41F34623E0075317B /* USNO.swift in Sources */,
 				7CAF9AF01F34623E0075317B /* Solar.swift in Sources */,
+				7CAF9B0D1F34666B0075317B /* Shb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

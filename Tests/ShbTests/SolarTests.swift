@@ -18,7 +18,7 @@ final class SolarTests: XCTestCase {
     
     /// How accurate, in minutes either side of the actual sunrise sunset, we want to be
     /// This is necessary as the algorithm uses assumptions during calculation
-    private let testAccuracy: TimeInterval = 60 * 5
+    static let testAccuracy: TimeInterval = 60 * 5
     
     private lazy var cities: [City] = {
         guard
@@ -43,7 +43,7 @@ final class SolarTests: XCTestCase {
                 return
             }
             
-            XCTAssertEqualWithAccuracy(sunrise.timeIntervalSince1970, city.sunrise.timeIntervalSince1970, accuracy: testAccuracy, "\(city.name): \(sunrise) not close to \(city.sunrise)")
+            XCTAssertEqualWithAccuracy(sunrise.timeIntervalSince1970, city.sunrise.timeIntervalSince1970, accuracy: SolarTests.testAccuracy, "\(city.name): \(sunrise) not close to \(city.sunrise)")
         }
     }
     
@@ -64,7 +64,7 @@ final class SolarTests: XCTestCase {
                 return
             }
             
-            XCTAssertEqualWithAccuracy(sunset.timeIntervalSince1970, city.sunset.timeIntervalSince1970, accuracy: testAccuracy, "\(city.name): \(sunset) not close to \(city.sunset)")
+            XCTAssertEqualWithAccuracy(sunset.timeIntervalSince1970, city.sunset.timeIntervalSince1970, accuracy: SolarTests.testAccuracy, "\(city.name): \(sunset) not close to \(city.sunset)")
         }
     }
     
