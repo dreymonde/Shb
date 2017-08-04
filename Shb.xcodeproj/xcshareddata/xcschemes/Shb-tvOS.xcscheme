@@ -14,24 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7FC5B591D469B2700C4D3EB"
-               BuildableName = "Solar.framework"
-               BlueprintName = "Solar"
-               ReferencedContainer = "container:Solar.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "97837EAA1E4BB1DE000FEF64"
-               BuildableName = "SolarTests.xctest"
-               BlueprintName = "SolarTests"
-               ReferencedContainer = "container:Solar.xcodeproj">
+               BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
+               BuildableName = "Shb.framework"
+               BlueprintName = "Shb-tvOS"
+               ReferencedContainer = "container:Shb.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,20 +33,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "97837EAA1E4BB1DE000FEF64"
-               BuildableName = "SolarTests.xctest"
-               BlueprintName = "SolarTests"
-               ReferencedContainer = "container:Solar.xcodeproj">
+               BlueprintIdentifier = "DD75028C1C690C7A006590AF"
+               BuildableName = "Shb-tvOS Tests.xctest"
+               BlueprintName = "Shb-tvOS Tests"
+               ReferencedContainer = "container:Shb.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F7FC5B591D469B2700C4D3EB"
-            BuildableName = "Solar.framework"
-            BlueprintName = "Solar"
-            ReferencedContainer = "container:Solar.xcodeproj">
+            BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
+            BuildableName = "Shb.framework"
+            BlueprintName = "Shb-tvOS"
+            ReferencedContainer = "container:Shb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -79,10 +65,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F7FC5B591D469B2700C4D3EB"
-            BuildableName = "Solar.framework"
-            BlueprintName = "Solar"
-            ReferencedContainer = "container:Solar.xcodeproj">
+            BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
+            BuildableName = "Shb.framework"
+            BlueprintName = "Shb-tvOS"
+            ReferencedContainer = "container:Shb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -97,10 +83,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F7FC5B591D469B2700C4D3EB"
-            BuildableName = "Solar.framework"
-            BlueprintName = "Solar"
-            ReferencedContainer = "container:Solar.xcodeproj">
+            BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
+            BuildableName = "Shb.framework"
+            BlueprintName = "Shb-tvOS"
+            ReferencedContainer = "container:Shb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

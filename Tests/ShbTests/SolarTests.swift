@@ -8,8 +8,7 @@
 
 import XCTest
 
-@testable
-import Solar
+@testable import Shb
 
 typealias USNOSolar = Solar<USNOZenith>
 
